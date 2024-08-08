@@ -56,10 +56,14 @@ def test_dequeue_empty(queue1):
     assert queue1.dequeue() is None
 
 
+def test_dequeue_empty(queue1):
+    assert queue1.dequeue() is None
+
+
 def test_enqueue_after_dequeue(queue1):
     queue1.enqueue('data1')
     queue1.enqueue('data2')
-    assert queue1.dequeue().data == 'data1'
+    assert queue1.dequeue() == 'data1'
     assert queue1.head.data == 'data2'
     assert queue1.tail.data == 'data2'
 
@@ -71,7 +75,7 @@ def test_enqueue_after_dequeue(queue1):
 
 def test_mixed_operations(queue1):
     queue1.enqueue('data1')
-    assert queue1.dequeue().data == 'data1'
+    assert queue1.dequeue() == 'data1'
     assert queue1.head is None
     assert queue1.tail is None
 
@@ -83,7 +87,7 @@ def test_mixed_operations(queue1):
     assert queue1.head.data == 'data2'
     assert queue1.tail.data == 'data3'
 
-    assert queue1.dequeue().data == 'data2'
+    assert queue1.dequeue() == 'data2'
     assert queue1.head.data == 'data3'
     assert queue1.tail.data == 'data3'
 
